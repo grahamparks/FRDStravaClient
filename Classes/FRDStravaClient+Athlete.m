@@ -7,7 +7,7 @@
 
 #import "FRDStravaClient+Athlete.h"
 #import <Mantle/Mantle.h>
-#import "AFNetworking.h"
+#import <AFNetworking/AFNetworking.h>
 
 @interface AthleteListWrapper : MTLModel<MTLJSONSerializing>
 

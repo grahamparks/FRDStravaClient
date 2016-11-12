@@ -6,7 +6,7 @@
 //
 
 #import "FRDStravaClient+Access.h"
-#import "AFNetworking.h"
+#import <AFNetworking/AFNetworking.h>
 
 #if !TARGET_OS_WATCH
 

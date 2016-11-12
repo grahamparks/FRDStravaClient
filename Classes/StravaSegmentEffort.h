@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Sebastien Windal. All rights reserved.
 //
 
-#import "MTLModel.h"
+#import <Mantle/MTLModel.h>
 #import "StravaSegment.h"
 
 ///

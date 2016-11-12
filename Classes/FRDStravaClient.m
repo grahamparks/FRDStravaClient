@@ -6,7 +6,7 @@
 //
 
 #import "FRDStravaClient.h"
-#import "AFNetworking.h"
+#import <AFNetworking/AFNetworking.h>
 
 @interface FRDStravaClient()
 

@@ -6,7 +6,7 @@
 //
 
 #import <Mantle/Mantle.h>
-#import "AFNetworking.h"
+#import <AFNetworking/AFNetworking.h>
 #import "FRDStravaClient+Lap.h"
 #import "StravaActivityLap.h"
 

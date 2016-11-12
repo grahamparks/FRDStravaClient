@@ -7,7 +7,7 @@
 //
 
 #import "FRDStravaClient+ActivityStream.h"
-#import "AFNetworking.h"
+#import <AFNetworking/AFNetworking.h>
 #import <Mantle/Mantle.h>
 
 @interface StreamResponse: MTLModel<MTLJSONSerializing>

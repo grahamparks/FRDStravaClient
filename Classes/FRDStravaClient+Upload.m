@@ -7,7 +7,7 @@
 
 #import "FRDStravaClient+Upload.h"
 #import <Mantle/Mantle.h>
-#import "AFNetworking.h"
+#import <AFNetworking/AFNetworking.h>
 #import "StravaActivityUploadStatus.h"
 #import "StravaCommon.h"
 

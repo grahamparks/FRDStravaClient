@@ -5,7 +5,7 @@
 //  Created by Sebastien Windal on 4/18/14.
 //
 
-#import "MTLModel.h"
+#import <Mantle/MTLModel.h>
 #import "StravaAthlete.h"
 #import <CoreLocation/CoreLocation.h>
 #import "StravaMap.h"
