@@ -10,8 +10,8 @@ Pod::Spec.new do |s|
 
   
   s.name         = "FRDStravaClient"
-  s.version      = "1.0.2"
-  s.summary      = "A iOS Strava API client."
+  s.version      = "1.0.2.1"
+  s.summary      = "A iOS and WatchOS Strava API client."
   s.description  = <<-DESC
                    A iOS client for the Strava API written in obj-C,
                    leverages AFNetworking for networking operations and Mantle for
@@ -19,12 +19,12 @@ Pod::Spec.new do |s|
                    DESC
   s.homepage     = "http://github.com/sebastienwindal/FRDStravaClient"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
-  s.author    = "Sebastien Windal"
-  s.platform     = :ios, "7.0"
-  s.source       = { :git => "https://github.com/sebastienwindal/FRDStravaClient.git", :tag => "1.0.2" }
+  s.author    = "Sebastien Windal, ChenJian345 and Graham Parks"
+  s.platforms     =  { :ios => "7.0", :watchos => "3.0" }
+  s.source       = { :git => "https://github.com/grahamparks/FRDStravaClient.git", :tag => "1.0.2.1" }
   s.source_files  = "Classes", "Classes/**/*.{h,m}"
   s.requires_arc = true
-  s.dependency "AFNetworking", "~> 2.0"
-  s.dependency "Mantle", "1.5"
+  s.dependency "AFNetworking", "~> 3.0"
+  s.dependency "Mantle", "1.5.8"
 
 end
