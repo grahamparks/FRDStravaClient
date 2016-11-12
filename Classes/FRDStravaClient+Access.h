@@ -7,6 +7,8 @@
 
 #import "FRDStravaClient.h"
 
+#if !TARGET_OS_WATCH
+
 /**
 
 The Access category provides methods to authorize your app with the Strava Rest service.
@@ -66,3 +68,5 @@ After the user successfuly authorized your app, Safari will open your app by lau
 
 
 @end
+
+#endif

@@ -8,6 +8,8 @@
 #import "FRDStravaClient+Access.h"
 #import "AFNetworking.h"
 
+#if !TARGET_OS_WATCH
+
 @implementation FRDStravaClient (Access)
 
 -(void) authorizeWithCallbackURL:(NSURL *)callbackUrl stateInfo:(NSString *)stateInfo
@@ -115,3 +117,5 @@ const NSString *kStravaAuthURLError = @"error";
 
 
 @end
+
+#endif
