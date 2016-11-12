@@ -36,8 +36,8 @@
     NSInteger len = [escapedEncodedPoints length];
     NSMutableArray *waypoints = [[NSMutableArray alloc] init];
     NSInteger index = 0;
-    CGFloat lat = 0;
-    CGFloat lng = 0;
+    CLLocationDegrees lat = 0;
+    CLLocationDegrees lng = 0;
 
     while (index < len) {
         char b;
@@ -49,7 +49,7 @@
             shift += 5;
         } while (b >= 0x20);
       
-        float dlat = ((result & 1) ? ~(result >> 1) : (result >> 1));
+        CLLocationDegrees dlat = ((result & 1) ? ~(result >> 1) : (result >> 1));
         lat += dlat;
       
         shift = 0;
@@ -60,11 +60,11 @@
             shift += 5;
         } while (b >= 0x20);
       
-        float dlng = ((result & 1) ? ~(result >> 1) : (result >> 1));
+        CLLocationDegrees dlng = ((result & 1) ? ~(result >> 1) : (result >> 1));
         lng += dlng;
       
-        float finalLat = lat * 1e-5;
-        float finalLong = lng * 1e-5;
+        CLLocationDegrees finalLat = lat * 1e-5;
+        CLLocationDegrees finalLong = lng * 1e-5;
       
         CLLocationCoordinate2D newPoint;
 

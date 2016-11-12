@@ -26,7 +26,7 @@
 @property (nonatomic, readonly) NSTimeInterval elapsedTime;
 @property (nonatomic, readonly) NSTimeInterval movingTime;
 @property (nonatomic, copy, readonly) NSDate *startDate;
-@property (nonatomic, readonly) CGFloat distance;
+@property (nonatomic, readonly) CLLocationDistance distance;
 @property (nonatomic, readonly) NSInteger startIndex;
 @property (nonatomic, readonly) NSInteger endIndex;
 @property (nonatomic, readonly) BOOL hidden;

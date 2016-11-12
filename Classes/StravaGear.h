@@ -8,6 +8,8 @@
 
 #import <Mantle/Mantle.h>
 #import "StravaCommon.h"
+#import <CoreLocation/CoreLocation.h>
+
 
 ///
 /// Possible bike types for a gear object.
@@ -33,7 +35,7 @@ typedef NS_ENUM(NSInteger,kGearFrameType) {
 @property (nonatomic, copy, readonly)  NSString *id;
 @property (nonatomic, readonly)  BOOL primary;
 @property (nonatomic, copy, readonly)  NSString *name;
-@property (nonatomic, readonly)  CGFloat distance;
+@property (nonatomic, readonly)  CLLocationDistance distance;
 @property (nonatomic, copy, readonly)  NSString *brandName;
 @property (nonatomic, copy, readonly)  NSString *modelName;
 @property (nonatomic, readonly)  kGearFrameType frameType;
