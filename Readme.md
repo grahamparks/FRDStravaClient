@@ -1,5 +1,9 @@
 # FRDStravaClient
 
+## About this fork
+
+This fork's main purpose is to make the library build on WatchOS. It incorporates ChenJian345's patches to work with AFNetworking 3, which is a necessity. -- grahamparks
+
 ## The library
 
 ### Overview
