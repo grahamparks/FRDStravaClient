@@ -35,8 +35,9 @@ typedef NS_ENUM(NSInteger, kUploadDataType) {
  @param private wether the new activity should be private or not
  @param success Success callback
  @param failure Failure callback
+ @return the upload task
  */
--(void) uploadActivity:(NSURL *)fileURL
+-(NSURLSessionDataTask *) uploadActivity:(NSURL *)fileURL
                   name:(NSString *)name
           activityType:(kActivityType)activityType
               dataType:(kUploadDataType)dataType
