@@ -48,6 +48,10 @@
     manager.responseSerializer.acceptableStatusCodes = indexset;
     
     [manager POST:@"uploads" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+   
+        if (name != nil) {
+            [formData appendPartWithFormData:[name dataUsingEncoding:NSUTF8StringEncoding] name:@"name"];
+        }
         [formData appendPartWithFormData:[private ? @"1" : @"0" dataUsingEncoding:NSUTF8StringEncoding] name:@"private"];
         [formData appendPartWithFormData:[activityTypeStr dataUsingEncoding:NSUTF8StringEncoding] name:@"activity_type"];
         [formData appendPartWithFormData:[dataTypeStr dataUsingEncoding:NSUTF8StringEncoding] name:@"data_type"];
@@ -56,33 +60,33 @@
         
         [formData appendPartWithFileURL:fileURL
                                    name:@"file"
-                               fileName:name
+                               fileName:[NSString stringWithFormat:@"Activity.%@", dataTypeStr]
                                mimeType:@"application/octet-stream"
                                   error:&error];
         
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSError *error;
-        StravaActivityUploadStatus *status = [MTLJSONAdapter modelOfClass:[StravaActivityUploadStatus class]
-                                                       fromJSONDictionary:responseObject
-                                                                    error:&error];
-        
-        if (error) {
-            failure(error);
-        } else {
-            if (status.error.length > 0) {
-                error = [[NSError alloc] initWithDomain:@"FRDStravaClientDomain"
-                                                   code:1
-                                               userInfo:@{NSLocalizedDescriptionKey: status.error}];
-                failure(error);
-            } else {
-                success(status);
-            }
-        }
+              NSError *error;
+              StravaActivityUploadStatus *status = [MTLJSONAdapter modelOfClass:[StravaActivityUploadStatus class]
+                                                             fromJSONDictionary:responseObject
+                                                                          error:&error];
+              
+              if (error) {
+                  failure(error);
+              } else {
+                  if (status.error.length > 0) {
+                      error = [[NSError alloc] initWithDomain:@"FRDStravaClientDomain"
+                                                         code:1
+                                                     userInfo:@{NSLocalizedDescriptionKey: status.error}];
+                      failure(error);
+                  } else {
+                      success(status);
+                  }
+              }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        failure(error);
-    }];
+              failure(error);
+          }];
 }
 
 
@@ -99,25 +103,25 @@
         progress:^(NSProgress * _Nonnull downloadProgress) {
             
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            NSError *error;
-            StravaActivityUploadStatus *status = [MTLJSONAdapter modelOfClass:[StravaActivityUploadStatus class]
-                                                           fromJSONDictionary:responseObject
-                                                                        error:&error];
-            
-            if (error) {
-                failure(error);
-            } else {
-                if (status.error.length > 0) {
-                    error = [[NSError alloc] initWithDomain:@"FRDStravaClientDomain"
-                                                       code:1
-                                                   userInfo:@{NSLocalizedDescriptionKey: status.error}];
-                    failure(error);
-                }
-            }
-            success(status);
+             NSError *error;
+             StravaActivityUploadStatus *status = [MTLJSONAdapter modelOfClass:[StravaActivityUploadStatus class]
+                                                            fromJSONDictionary:responseObject
+                                                                         error:&error];
+             
+             if (error) {
+                 failure(error);
+             } else {
+                 if (status.error.length > 0) {
+                     error = [[NSError alloc] initWithDomain:@"FRDStravaClientDomain"
+                                                        code:1
+                                                    userInfo:@{NSLocalizedDescriptionKey: status.error}];
+                     failure(error);
+                 }
+             }
+             success(status);
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            failure(error);
-        }];
+             failure(error);
+         }];
 }
 
 @end
